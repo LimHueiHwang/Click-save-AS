@@ -23,7 +23,8 @@ The tool is designed to reduce repetitive manual clicks, improve efficiency, and
 | File Name          | Description |
 |--------------------|-------------|
 | `save_as_click.py` | Python script for locating and clicking the Save As button |
-| `save_as.png`      | Reference image of the Save As button (must be captured by the user) |
+| `Light_Mode.png`      | Reference image of the Save As button (must be captured by the user) |
+| `PO softcopy preview.png`   | Example screenshot of the PO print softcopy preview   |
 
 ---
 
