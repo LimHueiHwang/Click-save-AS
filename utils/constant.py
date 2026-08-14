@@ -1,3 +1,17 @@
+# Example configuration for Click Save As Automation
+#
+# Copy this file to:
+#     utils/constant.py
+#
+# Then replace the example values with your local environment settings.
+
+# Maximum number of attempts to locate the Save As button.
 MAX_RETRIES = 10
-target_wb_name = "PO Softcopy creation Imac Version 1.7 - for Excel 2016(SAP 770) - 07242025.xlsm"
-error_file = r"\\sgsind0nsifsv01a\IMAC\MACROS\test\Po Softcopy\python error PO softcopy.xlsx"
+
+# Name of the Excel workbook used by the automation.
+# Replace with the actual workbook name used in your environment.
+target_wb_name = "YOUR_WORKBOOK_NAME.xlsm"
+
+# Path to the Excel error log.
+# Replace with a valid local or network path in your environment.
+error_file = r"C:\Path\To\python_error_log.xlsx"
