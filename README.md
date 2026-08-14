@@ -40,7 +40,7 @@ The Python component works as part of an existing Excel VBA and SAP GUI workflow
 
 * OpenCV template matching
 * Multi-scale UI element detection
-* Configurable confidence threshold
+* Configurable OpenCV matching threshold
 * Retry handling for UI detection
 * PO number normalization for Excel/VBA comparison
 * Excel-based error reporting
