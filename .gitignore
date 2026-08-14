@@ -23,6 +23,10 @@ dist/
 *.xlsx
 *.xlsm
 
+# Allow sanitized sample files
+!sample/
+!sample/*.xlsx
+
 # Temporary files
 *.tmp
 *.temp
