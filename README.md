@@ -22,18 +22,15 @@ A failed click can interrupt the entire PO softcopy process.
 
 The automation captures the current screen and uses **OpenCV template matching** to locate the required Save As interface element.
 
-The detection process:
+The detection process includes:
 
-1. Captures the current screen.
-2. Loads the appropriate reference image.
-3. Searches across multiple image scales.
-4. Calculates the best matching location.
-5. Validates the match against a confidence threshold.
-6. Uses PyAutoGUI to perform the click.
-7. Retries the detection when necessary.
-8. Logs errors when the operation cannot be completed.
-
-This provides a more flexible alternative to fixed screen coordinates.
+* Screen capture
+* Reference image loading
+* Multi-scale template matching
+* Confidence-based validation
+* Automated PyAutoGUI clicking
+* Retry handling
+* Error logging
 
 ## Key Features
 
@@ -45,25 +42,15 @@ This provides a more flexible alternative to fixed screen coordinates.
 * Excel VBA integration
 * PO number validation and normalization
 * Excel-based error logging
-* Supports both Python and packaged EXE execution
+* Supports Python and packaged EXE execution
 
 ## Architecture
 
-```text
-Excel VBA
-    ↓
-SAP PO / ME22N
-    ↓
-PO Softcopy / Save As
-    ↓
-Python EXE
-    ↓
-OpenCV Image Detection
-    ↓
-PyAutoGUI Click
-    ↓
-VBA Workflow Continues
-```
+![Architecture](docs/diagrams/architecture.png)
+
+## Workflow
+
+![Workflow](docs/diagrams/workflow.png)
 
 ## Technologies
 
@@ -122,4 +109,4 @@ This project is a targeted automation solution, not a general-purpose SAP automa
 
 **Status: Production Automation / Portfolio Project**
 
-The Python refactoring and repository cleanup have been completed/in progress. Final EXE packaging and end-to-end validation remain part of the release process.
+Python refactoring and repository cleanup are complete. Final EXE packaging and end-to-end validation are part of the release process.
