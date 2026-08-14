@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environment
+.venv/
+venv/
+env/
+
+# Local configuration
+utils/constant.py
+
+# Build / packaging
+build/
+dist/
+*.spec
+
+# Local runtime files
+*.log
+*.txt
+
+# Local Excel files
+*.xlsx
+*.xlsm
+
+# Temporary files
+*.tmp
+*.temp
+
+# IDE / editor
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
