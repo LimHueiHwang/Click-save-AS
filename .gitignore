@@ -16,9 +16,8 @@ build/
 dist/
 *.spec
 
-# Local runtime files
+# Runtime logs
 *.log
-*.txt
 
 # Local Excel files
 *.xlsx
