@@ -27,14 +27,14 @@ The Python component works as part of an existing Excel VBA and SAP GUI workflow
 
 ## Technologies
 
-* Python
-* OpenCV
-* PyAutoGUI
-* PyWin32 / `win32com`
-* OpenPyXL
-* Microsoft Excel
-* VBA
-* SAP GUI
+- Python
+- OpenCV
+- NumPy
+- PyAutoGUI
+- PyWin32
+- OpenPyXL
+- Excel VBA
+- SAP GUI
 
 ## Key Features
 
