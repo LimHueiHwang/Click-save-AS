@@ -1,7 +1,6 @@
 import datetime
 import os
 import sys
-import traceback
 
 import cv2
 import numpy as np
