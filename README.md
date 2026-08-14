@@ -1,112 +1,99 @@
-# SAP PO Softcopy Save As Automation
+# Click Save As Automation
+
+Status: Production
 
 ## Overview
 
-This project improves the reliability of an existing SAP Purchase Order (PO) softcopy automation workflow by replacing fixed screen-coordinate clicking with **Python and OpenCV image-based detection**.
-
-Python is used as a specialized component within the existing **Excel VBA + SAP GUI** workflow rather than replacing it.
+Python automation developed to improve the reliability of an existing SAP Purchase Order (PO) softcopy saving workflow. The solution uses OpenCV-based UI element detection instead of relying entirely on fixed screen coordinates.
 
 ## Problem
 
-The original automation relied on fixed screen coordinates to locate the **Save As** controls. This approach can become unreliable when the SAP interface changes due to:
-
-* Different screen resolutions
-* Window positioning
-* SAP theme changes
-* UI scaling
-* Different desktop environments
-
-A failed click can interrupt the entire PO softcopy process.
+The existing desktop automation depended on fixed screen coordinates. Changes in screen resolution, display scaling, or application layout could cause the automation to click the wrong location or fail to locate the Save As function.
 
 ## Solution
 
-The automation captures the current screen and uses **OpenCV template matching** to locate the required Save As interface element.
+A Python component was developed to dynamically detect the Save As UI element using OpenCV template matching. The detected screen position is then used by PyAutoGUI to perform the required interaction.
 
-The detection process includes:
-
-* Screen capture
-* Reference image loading
-* Multi-scale template matching
-* Confidence-based validation
-* Automated PyAutoGUI clicking
-* Retry handling
-* Error logging
-
-## Key Features
-
-* OpenCV template matching
-* Multi-scale image detection
-* Confidence-based match validation
-* Automatic retry handling
-* PyAutoGUI desktop interaction
-* Excel VBA integration
-* PO number validation and normalization
-* Excel-based error logging
-* Supports Python and packaged EXE execution
-
-## Architecture
-
-![Architecture](docs/diagrams/architecture.png)
+The Python component works as part of an existing Excel VBA and SAP GUI workflow.
 
 ## Workflow
 
-![Workflow](docs/diagrams/workflow.png)
+```text
+Excel / VBA Workflow
+        ↓
+SAP PO Process
+        ↓
+Save As UI
+        ↓
+OpenCV Template Matching
+        ↓
+Multi-Scale Detection
+        ↓
+Confidence Check
+        ↓
+PyAutoGUI Interaction
+        ↓
+File Save / Error Reporting
+```
+
+## Architecture
+
+The project consists of a Python automation script, configuration template, reference images, and workflow/architecture documentation.
+
+The Python component is responsible for UI detection, desktop interaction, retry handling, and Excel-based error reporting.
 
 ## Technologies
 
 * Python
 * OpenCV
-* NumPy
 * PyAutoGUI
-* PyWin32
+* PyWin32 / `win32com`
 * OpenPyXL
-* Excel VBA
-* SAP GUI Scripting
+* Microsoft Excel
+* VBA
+* SAP GUI
 
-## Project Structure
+## Key Features
 
-```text
-Click-save-AS/
-├── Click_save_as.py
-├── README.md
-├── requirements.txt
-├── .gitignore
-├── utils/
-│   └── constant.example.py
-├── images/
-│   ├── Dark_Mode.png
-│   ├── Light_Mode.png
-│   └── PO_softcopy_preview.png
-└── docs/
-    └── diagrams/
-        ├── architecture.png
-        └── workflow.png
-```
+* OpenCV template matching
+* Multi-scale UI element detection
+* Configurable confidence threshold
+* Retry handling for UI detection
+* PO number normalization for Excel/VBA comparison
+* Excel-based error reporting
+* Support for different local desktop environments
 
 ## Error Handling
 
-The automation includes retry logic and error logging to reduce workflow interruptions. When image detection fails, the process records the error and updates the existing Excel-based error reporting workflow.
+The automation retries UI detection when the target element cannot be identified immediately. Errors are recorded in an Excel error log to support troubleshooting of failed processing.
+
+## Configuration
+
+`utils/constant.example.py` provides the configuration template.
+
+Actual local configuration values are kept outside the public repository through `.gitignore`.
+
+The runtime template images are stored in the user's local `PO Softcopy` folders. Images included in this repository are reference/sample assets for documentation and demonstration.
+
+## My Role
+
+I developed the Python component that detects the SAP Save As UI element and performs the required desktop interaction. I also implemented the OpenCV matching logic, retry handling, configuration, and Excel error reporting required by the automation workflow.
 
 ## Business Impact
 
-The solution improves the reliability of an existing SAP purchasing automation by reducing dependency on fixed screen coordinates while preserving the established VBA workflow.
-
-It demonstrates practical integration of **SAP automation, Python, OpenCV, desktop automation, and Excel VBA** to solve a real business process problem.
+The solution addresses a practical reliability problem in an existing SAP Purchasing automation workflow by reducing dependence on fixed screen coordinates.
 
 ## Limitations
 
-The automation still depends on:
+* The automation depends on the expected SAP/application UI appearance.
+* Runtime template images must be available in the configured local location.
+* The solution is intended for the specific workflow and environment for which it was developed.
+* No automated test suite is currently included.
 
-* SAP being in the expected workflow state
-* Compatible SAP UI appearance
-* Reference images being available
-* Active desktop interaction
-* Expected Excel workbook structure
+## Future Improvements
 
-This project is a targeted automation solution, not a general-purpose SAP automation framework.
+Potential improvements include packaging runtime assets with the application, improving UI detection robustness, adding automated tests, and further separating configuration from application logic.
 
-## Project Status
+## Disclaimer
 
-**Status: Production Automation / Portfolio Project**
-
-Python refactoring and repository cleanup are complete. Final EXE packaging and end-to-end validation are part of the release process.
+This repository contains sanitized code and sample/reference assets for portfolio demonstration. Production files, company-specific data, credentials, and confidential information are not included.
