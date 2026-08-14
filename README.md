@@ -18,29 +18,12 @@ The Python component works as part of an existing Excel VBA and SAP GUI workflow
 
 ## Workflow
 
-```text
-Excel / VBA Workflow
-        ↓
-SAP PO Process
-        ↓
-Save As UI
-        ↓
-OpenCV Template Matching
-        ↓
-Multi-Scale Detection
-        ↓
-Confidence Check
-        ↓
-PyAutoGUI Interaction
-        ↓
-File Save / Error Reporting
-```
+![Workflow Diagram](docs/diagrams/workflow.png)
+
 
 ## Architecture
 
-The project consists of a Python automation script, configuration template, reference images, and workflow/architecture documentation.
-
-The Python component is responsible for UI detection, desktop interaction, retry handling, and Excel-based error reporting.
+![Architecture Diagram](docs/diagrams/architecture.png)
 
 ## Technologies
 
