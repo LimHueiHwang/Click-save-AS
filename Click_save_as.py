@@ -10,7 +10,12 @@ from openpyxl import Workbook, load_workbook
 from openpyxl.styles import Alignment
 
 from utils.constant import (
+    DEBUG_MODE,
+    MATCH_THRESHOLD,
     MAX_RETRIES,
+    SCALE_MAX,
+    SCALE_MIN,
+    SCALE_STEPS,
     error_file,
     target_wb_name,
 )
@@ -20,9 +25,11 @@ from utils.constant import (
 # CONFIGURATION
 # ============================================================
 
-MATCH_THRESHOLD = 0.8
-SCALE_RANGE = np.linspace(0.8, 1.2, 10)
-DEBUG_MODE = False
+SCALE_RANGE = np.linspace(
+    SCALE_MIN,
+    SCALE_MAX,
+    SCALE_STEPS,
+)
 
 
 # ============================================================
